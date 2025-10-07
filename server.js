@@ -1,12 +1,21 @@
-//import { spawn } from "child_process";
+import { spawn } from "child_process";
 import express from "express";
 
-/*
-const youtube = spawn("uvicorn", ["youtube:app", "--port", "1922"]);
-youtube.on("close", () => {
-    console.log("youtube.py closed!");
+const ytwatch = spawn("uvicorn", ["ytwatch:app", "--port", "1923"]);
+ytwatch.on("close", () => {
+    console.log("ytwatch.py closed!");
 });
-*/
+ytwatch.stdout.on("data", (chunk) => {
+    console.log("YTWATCH:", chunk.toString());
+});
+
+const ytsearch = spawn("node", ["ytsearch.js"]);
+ytsearch.on("close", () => {
+    console.log("ytsearch.js closed!");
+});
+ytsearch.on("data", (chunk) => {
+    console.log("YTSEARCH:", chunk.toString());
+});
 
 const app = express();
 app.use(express.static("public"));
