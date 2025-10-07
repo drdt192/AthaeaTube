@@ -21,7 +21,7 @@ app.post("/watch", async (req, res) => {
 */
 
 app.listen(1922, () => {
-    console.log("online at http://localhost:1922/");
+    console.log("online at http://127.0.0.1:1922/");
 }); 
 
 
