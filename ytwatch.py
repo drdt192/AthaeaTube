@@ -5,7 +5,7 @@ from yt_dlp import YoutubeDL
 
 app = FastAPI()
 
-origins = ["http://127.0.0.1:1921"]
+origins = ["http://localhost:1921"]
 
 app.add_middleware(
     CORSMiddleware, 

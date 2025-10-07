@@ -12,7 +12,7 @@ searchForm.addEventListener("submit", async (event) => {
     searchText.value = "";
     console.log(query);
 
-    const request = await fetch("http://127.0.0.1:1922/search", {
+    const request = await fetch("http://localhost:1922/search", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ query })
@@ -38,7 +38,7 @@ searchForm.addEventListener("submit", async (event) => {
 
 searchResults.addEventListener("click", async (event) => {
     if(event.target.classList.contains("search-result")){
-        const request = await fetch("http://127.0.0.1:1923/watch", {
+        const request = await fetch("http://localhost:1923/watch", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
