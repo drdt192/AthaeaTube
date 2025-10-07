@@ -20,15 +20,21 @@ searchForm.addEventListener("submit", async (event) => {
 
     const video = await request.json()
     console.log(video);
+    console.log(video.length);
+    console.log(video[1].title);
+    
 
-    let result = document.createElement("div");
-    result.classList.add("search-result")
-    result.textContent = video.title;
-    result.dataset.title = video.title;
-    result.dataset.url = video.url;
-
-    searchResults.appendChild(result);
+    for(let i = 0; i < video.length; i++){
+        let result = document.createElement("div");
+        result.classList.add("search-result")
+        result.textContent = video[i].title;
+        result.dataset.title = video[i].title;
+        result.dataset.url = video[i].url;
+        searchResults.appendChild(result);
+    }
 });
+
+
 
 searchResults.addEventListener("click", async (event) => {
     if(event.target.classList.contains("search-result")){
@@ -45,6 +51,7 @@ searchResults.addEventListener("click", async (event) => {
         console.log(source);
         videoSource.src = source.src;
         playerVideo.load();
+        playerVideo.play();
 
         playerInfo.textContent = event.target.dataset.title;
     }
