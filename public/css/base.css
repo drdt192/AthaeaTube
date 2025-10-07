@@ -126,3 +126,9 @@ video {
     padding: 2px;
     cursor: pointer;
 }
+
+#extra-div {
+    position: absolute;
+    bottom: 4px;
+    left: 4px;
+}
