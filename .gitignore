@@ -1,3 +1,5 @@
 /node_modules
 pnpm-lock.yaml
 /public/videos
+/.venv
+/__pycache__

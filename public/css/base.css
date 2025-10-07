@@ -46,7 +46,20 @@ video {
 }
 
 #search-results {
+    display: flex;
+    flex-direction: column;
     flex: 1;
+}
+
+.search-result {
+    height: 10%;
+    width: 96%;
+    margin: 2%;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background-color: white;
+    text-align: center;
 }
 
 #search-form {
