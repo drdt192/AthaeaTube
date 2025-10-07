@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ZeroTube</title>
+        <link rel="icon" type="images/x-icon" href="images/favicon.ico">
+        <link rel="stylesheet" href="css/base.css">
+        <link rel="stylesheet" href="css/text.css">
+    </head>
+    <body>
+        <div id="player-div">
+            <div id="title-div">
+                <h1>ZeroTube</h1>
+            </div>
+            <div id="video-div">
+                <!-- This should be where the video goes -->
+                <video controls>
+                    <source src="videos/video.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div id="info-div">
+                <!-- Video info -->
+                 <h2>Video Title</h2>
+            </div>
+        </div>
+        <div id="search-div">
+            <!-- This is where u search for stuff -->
+             <h2 id="search-title">Search</h2>
+             <div id="search-results"></div>
+             <form id="search-form">
+                <input id="search-text" type="text" placeholder="Type something..." autocomplete="off">
+                <button id="search-button" type="submit">Search!</button>
+             </form>
+        </div>
+        <script src="js/search.js"></script>
+    </body>
+</html>
