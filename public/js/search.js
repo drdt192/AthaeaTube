@@ -22,7 +22,7 @@ searchForm.addEventListener("submit", async (event) => {
     console.log(video);
     console.log(video.length);
     console.log(video[1].title);
-    
+
 
     for(let i = 0; i < video.length; i++){
         let result = document.createElement("div");
@@ -38,7 +38,7 @@ searchForm.addEventListener("submit", async (event) => {
 
 searchResults.addEventListener("click", async (event) => {
     if(event.target.classList.contains("search-result")){
-        const request = await fetch("http://localhost:1922/watch", {
+        const request = await fetch("http://localhost:1923/watch", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({

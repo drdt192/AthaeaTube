@@ -34,6 +34,7 @@ body {
 
 #video-div {
     flex: 1;
+    height: 70%;
     background-color: rgb(0, 0, 0);
     padding: 10px;
     border-radius: 16px;
