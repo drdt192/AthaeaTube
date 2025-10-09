@@ -86,6 +86,10 @@ video {
 }
 
 .search-result {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: fit-content;
     width: 96%;
     margin: 2%;
@@ -93,9 +97,24 @@ video {
     box-sizing: border-box;
     border-radius: 8px;
     background-color: rgb(255, 255, 255);
-    text-align: center;
-    color: black;
     cursor: pointer;
+}
+
+.search-thumbnail {
+    height: 98%;
+    width: 98%;
+    margin: 0;
+    border: 2px solid black;
+    border-radius: 4px;
+}
+
+.search-title {
+    width: 96%;
+    background: linear-gradient(45deg, rgb(76, 65, 139), rgb(148, 123, 219));
+    border: 2px solid rgb(45, 38, 117);
+    border-radius: 4px;
+    padding: 5px;
+    margin: 4px 0 0 0;
 }
 
 #search-form {

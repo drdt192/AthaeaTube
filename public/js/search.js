@@ -17,19 +17,24 @@ searchForm.addEventListener("submit", async (event) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ query })
     });
+    const videos = await request.json()
 
-    const video = await request.json()
-    console.log(video);
-    console.log(video.length);
-    console.log(video[1].title);
-
-
-    for(let i = 0; i < video.length; i++){
+    for(let i = 0; i < videos.length; i++){
         let result = document.createElement("div");
-        result.classList.add("search-result")
-        result.textContent = video[i].title;
-        result.dataset.title = video[i].title;
-        result.dataset.url = video[i].url;
+        result.classList.add("search-result");
+        result.dataset.title = videos[i].title;
+        result.dataset.url = videos[i].url;
+        
+        let thumbnail = document.createElement("img");
+        thumbnail.classList.add("search-thumbnail");
+        thumbnail.src = videos[i].thumbnail;
+        result.appendChild(thumbnail);
+
+        let title = document.createElement("p");
+        title.textContent = videos[i].title;
+        title.classList.add("search-title");
+        result.appendChild(title);
+
         searchResults.appendChild(result);
     }
 });
@@ -37,22 +42,25 @@ searchForm.addEventListener("submit", async (event) => {
 
 
 searchResults.addEventListener("click", async (event) => {
-    if(event.target.classList.contains("search-result")){
+    const element = event.target.closest(".search-result");
+    console.log(element);
+    console.log(element.dataset.title);
+    console.log(element.dataset.url);
+    if(element){
         const request = await fetch("http://localhost:1923/watch", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-                title: event.target.dataset.title,
-                url: event.target.dataset.url
+                title: element.dataset.title,
+                url: element.dataset.url
             })
         });
 
         const source = await request.json();
-        console.log(source);
-        videoSource.src = source.src;
+        videoSource.src = `${source.src}?t=${Date.now()}`; //to avoid caching
         playerVideo.load();
         playerVideo.play();
 
-        playerInfo.textContent = event.target.dataset.title;
+        playerInfo.textContent = element.dataset.title;
     }
 });

@@ -8,8 +8,7 @@ app.use(cors());
 
 app.post("/search", async (req, res) => {
     const rawSearchResults = await yts(req.body.query);
-    const searchResults = rawSearchResults.all.map((video) => ({title: video.title, url: video.url}));
-    res.json(searchResults);
+    res.json(rawSearchResults.all);
 });
 
 /*
